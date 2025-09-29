@@ -11,7 +11,7 @@ export default function StudentPage() {
       return;
     }
 
-    fetch("http://localhost:4000/check-question")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/check-question`)
       .then((res) => res.json())
       .then((data) => {
         if (data.hasNewQuestion) {

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Timer from "../Timer";
 import  io  from "socket.io-client";
 
-const socket = io("http://localhost:4000");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 export default function StudentQuestion() {
   const location = useLocation();
@@ -19,7 +19,7 @@ export default function StudentQuestion() {
 
   useEffect(() => {
       if (!questionData){
-          fetch("http://localhost:4000/check-question")
+          fetch(`${import.meta.env.VITE_BACKEND_URL}/check-question`)
           .then((res) => res.json())
           .then((data) => {
               if (data.hasNewQuestion){

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const socket = io("http://localhost:4000");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 export default function TeacherViewQuestion() {
   const location = useLocation();
@@ -27,7 +27,7 @@ export default function TeacherViewQuestion() {
 
   useEffect(() => {
     if(!poll){
-    fetch("http://localhost:4000/check-question")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/check-question`)
       .then((res)  =>  res.json())
       .then(data => {
         if(data.hasNewQuestion) {

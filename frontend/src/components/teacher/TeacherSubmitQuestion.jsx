@@ -46,7 +46,7 @@ export default function TeacherSubmitQuestion() {
       }
 
       try{
-      const res = await fetch("http://localhost:4000/question-poll", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/question-poll`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question, options : filledOptions, timer }),

@@ -16,7 +16,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "https://live-polling-frontend-v1.onrender.com", 
+    origin: process.env.FRONTEND_URL || "https://live-polling-frontend-v2.onrender.com", 
     methods: ["GET", "POST"],
   },
 });

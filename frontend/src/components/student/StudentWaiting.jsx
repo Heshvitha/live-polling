@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:4000"); 
+const socket = io(import.meta.env.VITE_BACKEND_URL); 
 
 export default function StudentWaitingPage() {
   const navigate = useNavigate();
